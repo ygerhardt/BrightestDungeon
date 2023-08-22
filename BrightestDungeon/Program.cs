@@ -39,7 +39,7 @@ namespace BrightestDungeon
             // haha did the funny
             if (p.name == "Claudio")
             {
-                Console.WriteLine(" Your name is  " + p.name + "? You are not allowed here, back to ESO with you!");
+                Console.WriteLine(" Your name is  " + p.name + "? You are not allowed here, back to Final Fantasy with you!");
             }
             //Can't stop me now
             if (p.name == "Yasha")
