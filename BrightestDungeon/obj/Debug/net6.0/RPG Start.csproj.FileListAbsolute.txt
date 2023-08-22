@@ -1,0 +1,30 @@
+C:\Users\ygerhardt\Desktop\RPG Start\bin\Debug\net6.0\RPG Start.exe
+C:\Users\ygerhardt\Desktop\RPG Start\bin\Debug\net6.0\RPG Start.deps.json
+C:\Users\ygerhardt\Desktop\RPG Start\bin\Debug\net6.0\RPG Start.runtimeconfig.json
+C:\Users\ygerhardt\Desktop\RPG Start\bin\Debug\net6.0\RPG Start.dll
+C:\Users\ygerhardt\Desktop\RPG Start\bin\Debug\net6.0\RPG Start.pdb
+C:\Users\ygerhardt\Desktop\RPG Start\obj\Debug\net6.0\RPG Start.csproj.AssemblyReference.cache
+C:\Users\ygerhardt\Desktop\RPG Start\obj\Debug\net6.0\RPG Start.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ygerhardt\Desktop\RPG Start\obj\Debug\net6.0\RPG Start.AssemblyInfoInputs.cache
+C:\Users\ygerhardt\Desktop\RPG Start\obj\Debug\net6.0\RPG Start.AssemblyInfo.cs
+C:\Users\ygerhardt\Desktop\RPG Start\obj\Debug\net6.0\RPG Start.csproj.CoreCompileInputs.cache
+C:\Users\ygerhardt\Desktop\RPG Start\obj\Debug\net6.0\RPG Start.dll
+C:\Users\ygerhardt\Desktop\RPG Start\obj\Debug\net6.0\refint\RPG Start.dll
+C:\Users\ygerhardt\Desktop\RPG Start\obj\Debug\net6.0\RPG Start.pdb
+C:\Users\ygerhardt\Desktop\RPG Start\obj\Debug\net6.0\RPG Start.genruntimeconfig.cache
+C:\Users\ygerhardt\Desktop\RPG Start\obj\Debug\net6.0\ref\RPG Start.dll
+C:\Users\ygerhardt\Desktop\BrightestDungeon\bin\Debug\net6.0\RPG Start.exe
+C:\Users\ygerhardt\Desktop\BrightestDungeon\bin\Debug\net6.0\RPG Start.deps.json
+C:\Users\ygerhardt\Desktop\BrightestDungeon\bin\Debug\net6.0\RPG Start.runtimeconfig.json
+C:\Users\ygerhardt\Desktop\BrightestDungeon\bin\Debug\net6.0\RPG Start.dll
+C:\Users\ygerhardt\Desktop\BrightestDungeon\bin\Debug\net6.0\RPG Start.pdb
+C:\Users\ygerhardt\Desktop\BrightestDungeon\obj\Debug\net6.0\RPG Start.csproj.AssemblyReference.cache
+C:\Users\ygerhardt\Desktop\BrightestDungeon\obj\Debug\net6.0\RPG Start.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ygerhardt\Desktop\BrightestDungeon\obj\Debug\net6.0\RPG Start.AssemblyInfoInputs.cache
+C:\Users\ygerhardt\Desktop\BrightestDungeon\obj\Debug\net6.0\RPG Start.AssemblyInfo.cs
+C:\Users\ygerhardt\Desktop\BrightestDungeon\obj\Debug\net6.0\RPG Start.csproj.CoreCompileInputs.cache
+C:\Users\ygerhardt\Desktop\BrightestDungeon\obj\Debug\net6.0\RPG Start.dll
+C:\Users\ygerhardt\Desktop\BrightestDungeon\obj\Debug\net6.0\refint\RPG Start.dll
+C:\Users\ygerhardt\Desktop\BrightestDungeon\obj\Debug\net6.0\RPG Start.pdb
+C:\Users\ygerhardt\Desktop\BrightestDungeon\obj\Debug\net6.0\RPG Start.genruntimeconfig.cache
+C:\Users\ygerhardt\Desktop\BrightestDungeon\obj\Debug\net6.0\ref\RPG Start.dll
