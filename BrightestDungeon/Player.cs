@@ -7,7 +7,7 @@ namespace BrightestDungeon
 
         public string name;
         public int ID;
-        public int Coins = 0;
+        public int Coins = 20;
         public int health = 20;
         public int damage = 1;
         public int armorValue = 0;
@@ -33,8 +33,5 @@ namespace BrightestDungeon
             int lower = (10 * mods + 10);
             return rand.Next(lower, upper);
         }
-        //Why do you have to be there?
-        
         }
     }
-
