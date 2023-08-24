@@ -1,4 +1,7 @@
+using System.Xml.Linq;
+
 namespace BrightestDungeon;
+[Serializable]
     public class Shop
     {
 
@@ -65,7 +68,9 @@ namespace BrightestDungeon;
             break;
             else if (input == "q" || input == "quit")
             {
-                Program.Quit();
+                Program.Save();
+                Environment.Exit(0);
+
             }
 
             }
@@ -92,5 +97,3 @@ namespace BrightestDungeon;
             }
         }
     }
-
-
