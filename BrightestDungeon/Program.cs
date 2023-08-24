@@ -1,4 +1,11 @@
-﻿using System.Runtime.Serialization.Formatters.Binary;
+using System;
+using System.Xml;
+using System.Xml.Serialization;
+using System.IO;
+using System.Text.Json.Nodes;
+using System.Text.Json.Serialization;
+using System.Text.Json;
+using System.Security;
 
 namespace BrightestDungeon
 {   //defining the player class
@@ -10,22 +17,34 @@ namespace BrightestDungeon
         public static bool mainLoop = true;
         static void Main(string[] args)
         {
-            if(!Directory.Exists("saves"))
+            if(File.Exists("saves"))
             {
-                Directory.CreateDirectory("saves");
+                Program.Load();
             }
-            currentPlayer = Load(out bool newP);
-            if(newP)
-            {
-                Encounters.firstEncounter();
-            }
+            else Program.NewStart();
             while (mainLoop)
             {
                 Encounters.RandomEncounter();
             }
+            
+        }
+        //saving the game ig
+        public static void Save()
+        {
+            string currentPlayer = "saves";
+            string jsonString = JsonSerializer.Serialize(currentPlayer);
+            File.WriteAllText("saves", jsonString);
 
         }
-        static Player NewStart(int i) 
+        //I guess loading can be fun too... if it works
+        public static async void Load()
+        {
+            using FileStream openStream = File.OpenRead("saves");
+            Player? player = currentPlayer;
+            await JsonSerializer.DeserializeAsync<Player>(openStream);
+
+        }
+            public static Object NewStart() 
         {
             Console.Clear();
             Player p = new Player();
@@ -34,12 +53,11 @@ namespace BrightestDungeon
             Console.WriteLine("You try to remember your name...:");
             //self-insert time
             p.name = Console.ReadLine();
-            p.ID = i;
             Console.Clear();
             // haha did the funny
             if (p.name == "Claudio")
             {
-                Console.WriteLine(" Your name is  " + p.name + "? You are not allowed here, back to Final Fantasy with you!");
+                Console.WriteLine(" Your name is  " + p.name + "? You are not allowed here, back to ESO with you!");
             }
             //Can't stop me now
             if (p.name == "Yasha")
@@ -65,109 +83,11 @@ namespace BrightestDungeon
             Console.ReadKey();
             Console.Clear();
             Console.WriteLine("You can see a winged being though the bars of the door");
-            return p;
             Console.ReadKey();
+            Encounters.firstEncounter();
+            return p;
             
         }
-        public static void Quit()
-        {
-            Save(binForm);
-            Environment.Exit(0);
-        }
-        //saving the game bois
-        public static void Save(BinaryFormatter binForm)
-        {
-            BinaryFormatter binForm = new BinaryFormatter();
-            string path = "saves/" + currentPlayer.ID.ToString() + ".level";
-            FileStream file = File.Open(path, FileMode.OpenOrCreate);
-            binForm.Serialize(file, currentPlayer);
-            file.Close();
-        }
-        //Loading a saved game..?
-        public static Player Load(out bool newP)
-        {
-            newP = false;
-            Console.Clear();
-            string[] paths = Directory.GetFiles("saves");
-            List<Player> players = new List<Player>();
-            int iDCount = 0;
+    }   
 
-            BinaryFormatter binForm = new BinaryFormatter();
-            foreach (string p in paths)
-            {
-                //Still work 2 do bois, error when saved game
-                FileStream file = File.Open(p, FileMode.Open);
-                // damn you break the game at launch bro
-                Player player = (Player)binForm.Deserialize(file);
-                file.Close();
-                players.Add(player);
-            }
-            iDCount = players.Count;
-             
-            while (true)
-            {
-                Console.Clear();
-
-                Console.WriteLine("Choose your life: ");
-
-                foreach (Player p in players)
-                {
-                    Console.WriteLine(p.ID + ": " + p.name);
-                }
-                Console.WriteLine("Please input player name or ID:(ID:# or playername) Additionally, 'create' will start a new life!");
-                string[] data = Console.ReadLine().Split(':');
-                Console.WriteLine("Start a new life or continue an existing one: ");
-                string Data = Console.ReadLine();
-                try
-                {
-                    if(data[0] == "ID")
-                    {
-                        if(int.TryParse(data [1], out int id))
-                        {
-                            foreach (Player player in players)
-                            {
-                                if(player.ID == id)
-                                {
-                                    return player;
-                                }
-                            }
-                            Console.WriteLine("There is no player with that ID!");
-                            Console.ReadKey();
-                        }
-                        else
-                        {
-                            Console.WriteLine("Your ID needs to be a number! Press any key to continue..");
-                            Console.ReadKey();
-                        }
-                    }
-                    else if(data[0] == "create")
-                    {
-                        Player newPlayer = NewStart(iDCount);
-                        newP = true;
-                        return newPlayer;
-                        
-                    }
-                    else
-                    {
-                        foreach(Player player in players)
-                        {
-                            if(player.name == data[0])
-                            {
-                                return player;
-                                
-                            }
-                        }
-                        Console.WriteLine("There is not player with that name");
-                    }
-                }
-                catch(IndexOutOfRangeException)
-                {
-                    Console.WriteLine("Your ID needs to be a number! Press any key to continue..");
-                    Console.ReadKey();
-                }
-            }
-
-
-        }
-    }
-}
+} 
