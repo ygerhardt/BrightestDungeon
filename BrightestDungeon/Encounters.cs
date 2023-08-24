@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Security.Cryptography.X509Certificates;
+
 
 namespace BrightestDungeon
 {
@@ -146,14 +148,17 @@ namespace BrightestDungeon
                     System.Environment.Exit(0);
                 }
                 Console.ReadKey();
-            }
+            
             int c = Program.currentPlayer.Coins;
             Console.WriteLine("As you stand victorious over the " + n + ", it dissolves to golden dust and " + c + " gold coins.");
             Program.currentPlayer.Coins += c;
+            Shop.LoadShop(Program.currentPlayer);
             Console.ReadKey();
+            
+        }
         }
 
-        public static string GetName()
+         public static string GetName()
         {
             switch(rand.Next(0, 12))
             {
@@ -192,4 +197,5 @@ namespace BrightestDungeon
             Console.ReadKey();
         }
     }
+
 }
