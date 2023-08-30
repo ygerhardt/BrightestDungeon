@@ -6,6 +6,9 @@ using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
 using System.Text.Json;
 using System.Security;
+using Newtonsoft;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Net.Mime;
 
 namespace BrightestDungeon
 {   //defining the player class
@@ -17,8 +20,9 @@ namespace BrightestDungeon
         public static bool mainLoop = true;
         static void Main(string[] args)
         {
-            if(File.Exists("saves"))
+            if(File.Exists("saveFile.txt"))
             {
+                
                 Program.Load();
             }
             else Program.NewStart();
@@ -31,17 +35,23 @@ namespace BrightestDungeon
         //saving the game ig
         public static void Save()
         {
-            string currentPlayer = "saves";
-            string jsonString = JsonSerializer.Serialize(currentPlayer);
-            File.WriteAllText("saves", jsonString);
-
+            var serializedObject = Newtonsoft.Json.JsonConvert.SerializeObject(currentPlayer);
+            string path = null;
+            path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            string filePath = Path.Combine(path, "saveFile.txt");
+            using (StreamWriter sw = new StreamWriter(filePath))
+            {
+                sw.Write(serializedObject);
+            }
         }
         //I guess loading can be fun too... if it works
-        public static async void Load()
+        public static void Load()
         {
-            using FileStream openStream = File.OpenRead("saves");
-            Player? player = currentPlayer;
-            await JsonSerializer.DeserializeAsync<Player>(openStream);
+            string content = null;
+            using (StreamReader sr = new StreamReader("saveFile.txt"))
+            {
+                content = sr.ReadToEnd();
+            }
 
         }
             public static Object NewStart() 
@@ -88,6 +98,17 @@ namespace BrightestDungeon
             return p;
             
         }
+        
+            
+        
+
     }   
 
-} 
+}      
+
+                
+            
+
+
+        
+    
